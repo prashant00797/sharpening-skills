@@ -1,10 +1,9 @@
-import Debouncing, { Debouncing2 } from "./components/Debouncing";
+import CommentsContainer from "./components/NestedComments";
 
 const App = () => {
   return (
     <div>
-      <Debouncing />
-      <Debouncing2 />
+      <CommentsContainer />
     </div>
   );
 };
