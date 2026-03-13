@@ -1,9 +1,9 @@
-import CommentsContainer from "./components/NestedComments";
+import LiveChat from "./components/LiveChat";
 
 const App = () => {
   return (
     <div>
-      <CommentsContainer />
+      <LiveChat />
     </div>
   );
 };
