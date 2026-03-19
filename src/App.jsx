@@ -1,11 +1,7 @@
-import LiveChat from "./components/LiveChat";
+import Kanban from "./components/Kanban";
 
 const App = () => {
-  return (
-    <div>
-      <LiveChat />
-    </div>
-  );
+  return <Kanban />;
 };
 
 export default App;
