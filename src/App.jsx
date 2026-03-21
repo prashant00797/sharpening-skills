@@ -1,7 +1,7 @@
-import Kanban from "./components/Kanban";
+import Todo from "./components/Todo";
 
 const App = () => {
-  return <Kanban />;
+  return <Todo />;
 };
 
 export default App;
