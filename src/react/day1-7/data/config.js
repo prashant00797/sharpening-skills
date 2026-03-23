@@ -1,0 +1,42 @@
+export const claimsData = [
+  {
+    id: 1,
+    patient: "Rahul Sharma",
+    type: "Dental",
+    amount: 12000,
+    status: "Approved",
+    date: "2026-01-15",
+  },
+  {
+    id: 2,
+    patient: "Priya Mehta",
+    type: "Medical",
+    amount: 45000,
+    status: "Pending",
+    date: "2026-02-03",
+  },
+  {
+    id: 3,
+    patient: "Amit Verma",
+    type: "Vision",
+    amount: 8000,
+    status: "Denied",
+    date: "2026-01-28",
+  },
+  {
+    id: 4,
+    patient: "Sunita Rao",
+    type: "Dental",
+    amount: 15000,
+    status: "Pending",
+    date: "2026-03-01",
+  },
+  {
+    id: 5,
+    patient: "Kaira Patel",
+    type: "Medical",
+    amount: 67000,
+    status: "Approved",
+    date: "2026-02-20",
+  },
+];
