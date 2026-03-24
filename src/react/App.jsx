@@ -1,8 +1,7 @@
-import ClaimsList from "./day1-7/component/DayOne";
-import FilterClaimsList from "./day1-7/component/DayTwo";
+import Navbar from "./layouts/Day2/Navbar";
 
 const App = () => {
-  return <FilterClaimsList />;
+  return <Navbar />;
 };
 
 export default App;

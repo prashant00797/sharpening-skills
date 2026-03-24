@@ -1,12 +1,3 @@
-/* boilerplate css must for every project to control the padding and margin efficiently */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 @import "tailwindcss";
 
 @layer base {
