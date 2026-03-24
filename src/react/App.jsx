@@ -1,7 +1,8 @@
-import Chatshell from "./layouts/Day1/Chatshell";
+import ClaimsList from "./day1-7/component/DayOne";
+import FilterClaimsList from "./day1-7/component/DayTwo";
 
 const App = () => {
-  return <Chatshell />;
+  return <FilterClaimsList />;
 };
 
 export default App;
