@@ -1,7 +1,7 @@
-import Navbar from "./layouts/Day2/Navbar";
+import ClaimSelection from "./day1-7/component/DayThree";
 
 const App = () => {
-  return <Navbar />;
+  return <ClaimSelection />;
 };
 
 export default App;
