@@ -1,7 +1,7 @@
-import ClaimSelection from "./day1-7/component/DayThree";
+import SummaryCard from "./day1-7/component/DayFour";
 
 const App = () => {
-  return <ClaimSelection />;
+  return <SummaryCard />;
 };
 
 export default App;
