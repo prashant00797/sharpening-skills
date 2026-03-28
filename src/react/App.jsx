@@ -1,7 +1,7 @@
-import SummaryCard from "./day1-7/component/DayFour";
+import SortColumns from "./day1-7/component/DayFive";
 
 const App = () => {
-  return <SummaryCard />;
+  return <SortColumns />;
 };
 
 export default App;
