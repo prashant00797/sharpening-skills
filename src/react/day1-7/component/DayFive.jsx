@@ -2,8 +2,10 @@ import { useState } from "react";
 import { claimsData } from "../data/config";
 
 const SortColumns = () => {
-  const [columnSelected, setColumnSelected] = useState("");
-  const [sort, setSort] = useState("asc");
+  const [coloumnConfig, setColoumnConfig] = useState({
+    column: "",
+    sort: "",
+  });
   const tableConfig = [
     {
       header: "Patient",
@@ -25,26 +27,32 @@ const SortColumns = () => {
 
   const handleSorting = (columnHead) => {
     if (columnHead === "status") return;
-    setColumnSelected(columnHead);
-    setSort((prev) => (prev === "asc" ? "desc" : "asc"));
+    if (coloumnConfig.column === columnHead) {
+      setColoumnConfig((prev) => ({
+        ...prev,
+        sort: prev.sort === "asc" ? "desc" : "asc",
+      }));
+    } else {
+      setColoumnConfig({ column: columnHead, sort: "asc" });
+    }
   };
   let sortedData = [...claimsData];
-  const sortAsc = sort === "asc";
-  const sortDesc = sort === "desc";
-  const arrow = sortAsc ? "⬆️" : "⬇️";
-  if (columnSelected === "patient") {
+  const sortAsc = coloumnConfig.sort === "asc";
+  const sortDesc = coloumnConfig.sort === "desc";
+  const arrow = coloumnConfig.sort === "asc" ? "⬆️" : "⬇️";
+  if (coloumnConfig.column === "patient") {
     if (sortAsc) {
       sortedData.sort((a, b) => a.patient.localeCompare(b.patient));
     } else if (sortDesc) {
       sortedData.sort((a, b) => b.patient.localeCompare(a.patient));
     }
-  } else if (columnSelected === "amount") {
+  } else if (coloumnConfig.column === "amount") {
     if (sortAsc) {
       sortedData.sort((a, b) => a.amount - b.amount);
     } else if (sortDesc) {
       sortedData.sort((a, b) => b.amount - a.amount);
     }
-  } else if (columnSelected === "date") {
+  } else if (coloumnConfig.column === "date") {
     if (sortAsc) {
       sortedData.sort((a, b) => new Date(a.date) - new Date(b.date));
     } else if (sortDesc) {
@@ -60,10 +68,10 @@ const SortColumns = () => {
               <th className="px-4" key={row.key}>
                 <span
                   onClick={() => handleSorting(row.key)}
-                  className={`cursor-pointer ${columnSelected === row.key && columnSelected !== "status" && "font-extrabold text-cyan-500"}`}
+                  className={`cursor-pointer ${coloumnConfig.column === row.key && coloumnConfig.column !== "status" && "font-extrabold text-cyan-500"}`}
                 >
-                  {columnSelected === row.key &&
-                    columnSelected !== "status" &&
+                  {coloumnConfig.column === row.key &&
+                    coloumnConfig.column !== "status" &&
                     arrow}
                   {row.header}
                 </span>
