@@ -1,7 +1,7 @@
-import SortColumns from "./day1-7/component/DayFive";
+import AddPatient from "./day1-7/component/DaySix";
 
 const App = () => {
-  return <SortColumns />;
+  return <AddPatient />;
 };
 
 export default App;
