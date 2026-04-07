@@ -1,9 +1,9 @@
-import ChatShell from "./layouts/Day1/Chat";
+import Sidebar from "./layouts/Day2/Sidebar";
 
 const AppLayout = () => {
   return (
     <div>
-      <ChatShell />
+      <Sidebar />
     </div>
   );
 };
