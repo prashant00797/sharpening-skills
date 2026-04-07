@@ -33,6 +33,7 @@ const AddPatient = () => {
   };
 
   const handleAddPatient = () => {
+    if (!patientDetails.patient.trim()) return;
     setClaimsData((prev) => [
       ...prev,
       { ...patientDetails, id: crypto.randomUUID() },
