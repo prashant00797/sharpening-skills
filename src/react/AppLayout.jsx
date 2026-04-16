@@ -1,10 +1,9 @@
-import CollapsibleSidebar from "./layouts/Day 3/CollapsibleSidebar";
-import Sidebar from "./layouts/Day2/Sidebar";
+import MessageBubble from "./layouts/Day 4/MessageBubble";
 
 const AppLayout = () => {
   return (
     <div>
-      <CollapsibleSidebar />
+      <MessageBubble />
     </div>
   );
 };
