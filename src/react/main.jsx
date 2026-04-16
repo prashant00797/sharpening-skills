@@ -7,7 +7,7 @@ import AppLogic from "./AppLogic.jsx";
 
 createRoot(document.getElementById("root")).render(
   <Provider store={appStore}>
-    <AppLayout />
-    {/* <AppLogic /> */}
+    {/* <AppLayout /> */}
+    <AppLogic />
   </Provider>,
 );
