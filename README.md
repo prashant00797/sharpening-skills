@@ -17,9 +17,11 @@ The focus is on understanding concepts deeply and applying them through small, p
 
 ```
 src/
-  javascript/
-  react/
-  ai/
+  react-javscript/
+  typescript/
+  fastapi/
+  python-genai/
+  llm-frameworks/
 ```
 
 ---
@@ -34,7 +36,7 @@ src/
 
 ## 🛠 Tech Focus
 
-JavaScript • React • Next.js • TypeScript • Python • LangChain • LangGraph • RAG • Agentic AI • Prompt Engineering • Gen AI 
+JavaScript • React • Next.js • TypeScript • Python • Fastapi • LangChain • LangGraph • RAG • Agentic AI • Prompt Engineering • Gen AI 
 
 ---
 
