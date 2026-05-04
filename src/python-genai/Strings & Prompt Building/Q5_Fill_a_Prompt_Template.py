@@ -20,7 +20,6 @@ def fill_template(template:str, variables:dict[str,str]):
 
 
 
-
 template = "You are a {role}. Help the user with {task}."
 variables = {"role": "doctor", "task": "symptoms analysis"}
 res = fill_template(template,variables)
