@@ -9,7 +9,7 @@ The focus is on understanding concepts deeply and applying them through small, p
 ## 🎯 Goal
 
 * Strengthen Frontend fundamentals
-* Strengthen backend fundamentals of python with respect to Generative AI
+* Strengthen Backend fundamentals of python and Fast API with respect to Generative AI
 * Learn AI integration and full-stack applications with help of Gen AI ecosystem
 
 ---
