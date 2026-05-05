@@ -1,6 +1,6 @@
-# 🚀 Sharpening Skills — Frontend Foundations → AI-Driven Applications
+# 🚀 Sharpening Skills — Full Stack AI Web Applications Foundation → AI-Driven Applications
 
-This repository tracks my journey of improving core frontend skills and building AI-powered applications.
+This repository tracks my journey of improving core frontend skills, backend skills and building AI-powered applications.
 
 The focus is on understanding concepts deeply and applying them through small, practical implementations.
 
@@ -9,6 +9,7 @@ The focus is on understanding concepts deeply and applying them through small, p
 ## 🎯 Goal
 
 * Strengthen Frontend fundamentals
+* Strengthen backend fundamentals of python with respect to Generative AI
 * Learn AI integration and full-stack applications with help of Gen AI ecosystem
 
 ---
