@@ -27,3 +27,4 @@ dist-ssr
 /ignore
 **.venv
 **__pycache__
+**.env
