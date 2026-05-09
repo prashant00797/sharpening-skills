@@ -19,3 +19,8 @@ class AddProduct(BaseModel):
     price:float=Field(...,gt=0,description="Price of the product")
     category:str=Field(...,description="Category of the product")
     description:Optional[str]=Field(description="Product description",default="")
+
+class UpdateUser(BaseModel):
+    name:Optional[str]=None
+    bio:Optional[str]=None
+    phone_number:Optional[str]=None
