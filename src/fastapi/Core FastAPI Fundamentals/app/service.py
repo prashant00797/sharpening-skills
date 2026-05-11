@@ -35,7 +35,6 @@ def add_products_service(productDetails):
 
 def update_user_service(id:int,userData:UpdateUser)->dict | None:
     for user in update_users_data:
-       print(user)
        if(user["id"]==id):
            updates = userData.model_dump(exclude_unset=True) # type: ignore
            user.update(updates)
