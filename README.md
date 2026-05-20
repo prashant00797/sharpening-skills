@@ -8,9 +8,9 @@ The focus is on understanding concepts deeply and applying them through small, p
 
 ## 🎯 Goal
 
-* Strengthen Frontend fundamentals
-* Strengthen Backend fundamentals of python and Fast API with respect to Generative AI
-* Learn AI integration and full-stack applications with help of Gen AI ecosystem
+- Strengthen Frontend fundamentals
+- Strengthen Backend fundamentals of python and Fast API with respect to Generative AI
+- Learn AI integration and full-stack applications with help of Gen AI ecosystem
 
 ---
 
@@ -18,26 +18,27 @@ The focus is on understanding concepts deeply and applying them through small, p
 
 ```
 src/
+  fastapi/
+  llm-frameworks/
+  nextjs/
+  python-genai/
   react-javscript/
   typescript/
-  fastapi/
-  python-genai/
-  llm-frameworks/
 ```
 
 ---
 
 ## 📈 Approach
 
-* Learn by building
-* Focus on clarity over complexity
-* Make consistent, meaningful progress
+- Learn by building
+- Focus on clarity over complexity
+- Make consistent, meaningful progress
 
 ---
 
 ## 🛠 Tech Focus
 
-JavaScript • React • Next.js • TypeScript • Python • Fastapi • LangChain • LangGraph • RAG • Agentic AI • Prompt Engineering • Gen AI 
+JavaScript • React • Next.js • TypeScript • Python • Fastapi • LangChain • LangGraph • RAG • Agentic AI • Prompt Engineering • Gen AI
 
 ---
 
