@@ -1,8 +1,35 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Next.js Playground — global design system
+   Light theme. Styles base HTML elements (so plain markup in
+   every block looks good) plus a few .pg-* playground helpers.
+   ============================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  /* surfaces */
+  --background: #f5f6f8;
+  --surface: #ffffff;
+  --surface-2: #f1f4f9;
+
+  /* text */
+  --foreground: #0f172a;
+  --muted: #5a6678;
+
+  /* lines + accent */
+  --border: #e4e8ef;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-soft: #e7efff;
+
+  /* shape */
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.05),
+    0 12px 28px -16px rgba(15, 23, 42, 0.3);
 }
 
 @theme inline {
@@ -12,15 +39,280 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ---------- base ---------- */
+
+html {
+  background: var(--background);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--primary-soft);
+  color: var(--primary-hover);
+}
+
+/* ---------- page container ---------- */
+
+main {
+  width: 100%;
+  max-width: 920px;
+  margin-inline: auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+/* ---------- typography ---------- */
+
+h1 {
+  font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 0.6rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  margin: 2.25rem 0 0.85rem;
+}
+
+h3 {
+  font-size: 1.12rem;
+  font-weight: 600;
+  margin: 1.6rem 0 0.6rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+strong {
+  color: var(--foreground);
+  font-weight: 650;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* ---------- lists ---------- */
+
+ul,
+ol {
+  margin: 0 0 1rem;
+  padding-left: 1.3rem;
+  color: var(--muted);
+}
+
+li {
+  margin: 0.35rem 0;
+}
+
+li::marker {
+  color: var(--primary);
+}
+
+/* ---------- code ---------- */
+
+code {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+  font-size: 0.875em;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 0.1em 0.4em;
+  border-radius: 6px;
+}
+
+pre {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* ---------- forms ---------- */
+
+button {
+  font: inherit;
+  font-weight: 550;
+  cursor: pointer;
+  background: var(--primary);
+  color: #fff;
+  border: 1px solid transparent;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+button:hover {
+  background: var(--primary-hover);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  color: var(--foreground);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.7rem;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+/* ---------- tables ---------- */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 1rem;
+  font-size: 0.92rem;
+}
+
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+th {
+  background: var(--surface-2);
+  font-weight: 600;
+}
+
+/* ============================================================
+   Playground helpers ( .pg-* )
+   ============================================================ */
+
+.pg-header {
+  margin-bottom: 2.25rem;
+}
+
+.pg-eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.pg-lead {
+  font-size: 1.05rem;
+}
+
+.pg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 0.9rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pg-grid li {
+  margin: 0;
+}
+
+.pg-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.05rem 1.2rem;
+  font-weight: 600;
+  color: var(--foreground);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.13s ease, border-color 0.13s ease,
+    box-shadow 0.13s ease;
+}
+
+.pg-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+}
+
+.pg-card-arrow {
+  color: var(--primary);
+  font-weight: 700;
+  transition: transform 0.13s ease;
+}
+
+.pg-card:hover .pg-card-arrow {
+  transform: translateX(3px);
+}
+
+.pg-back {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  font-size: 0.92rem;
+}
+
+.pg-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.4rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.pg-panel > :first-child {
+  margin-top: 0;
+}
+
+.pg-panel > :last-child {
+  margin-bottom: 0;
 }
