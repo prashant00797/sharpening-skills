@@ -1,0 +1,4 @@
+🏢 Real-World Context: A HealthTech startup (like PolicyBazaar) receives insurance claims as free-form text. Before processing, they need to extract structured fields: claimant name, claim amount, date of incident, and claim type.
+🔨 Your Task: Build a chain using with_structured_output that takes raw claim text and returns a Pydantic object with fields: claimant_name (str), claim_amount (float), incident_date (str), claim_type (Literal['medical','accident','property']).
+📥 Input: String: 'John Doe filed a medical claim of Rs 45000 on 15th March 2025 for hospitalization.'
+✅ Expected Behaviour: Pydantic object: ClaimSchema(claimant_name='John Doe', claim_amount=45000.0, incident_date='15th March 2025', claim_type='medical')
