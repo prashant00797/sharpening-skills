@@ -2,11 +2,9 @@ from ...config import load_env
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from rich.console import Console
-from rich.panel import Panel
+from ...display import panel
 load_env()
 
-console = Console()
 llm = ChatOpenAI(model="gpt-4o-mini",temperature=0.0)
 prompt = ChatPromptTemplate([
     ("system", 
@@ -33,5 +31,5 @@ def customer_support_assistant(question:dict):
 
 query = input("Please Enter your Query...")
 response = customer_support_assistant({"question":query})
-console.print(Panel(query, title="[bold yellow]User Query[/]", border_style="yellow"))
-console.print(Panel(response, title="[bold green]Assistant Response[/]", border_style="green"))
+panel(query, "User Query", "yellow")
+panel(response, "Assistant Response", "green")

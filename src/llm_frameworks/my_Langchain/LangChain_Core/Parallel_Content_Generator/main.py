@@ -2,38 +2,34 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnableParallel
 from langchain_core.output_parsers import StrOutputParser
-from rich.console import Console
-from rich.panel import Panel
-from rich.columns import Columns
-
 from ...config import load_env
+from ...display import columns
 load_env()
-
-console = Console()
-
 
 
 llm = ChatOpenAI(model="gpt-4o-mini",temperature=0.5)
 parser  = StrOutputParser()
 
 
+def make_chain(system_msg,human_msg):
+    prompt = ChatPromptTemplate.from_messages([
+        ('system',system_msg),('human',human_msg)
+    ])
+
+    return prompt | llm | parser
 
 
-prompt_tweet = ChatPromptTemplate.from_messages([('system','You are a content writer for twitter.'),('human','Generate a tweet on topic :{topic} in 280 chars')])
-prompt_linkedin_post = ChatPromptTemplate.from_messages([('system','You are a content writer for LinkedIn.'),('human','Generate a linkedIn post on topic :{topic}')])
-prompt_email_sub = ChatPromptTemplate.from_messages([('system','You are a helpful assistant for writing email subjects.'),('human','Generate an email subject on topic :{topic}')])
+runnable_parrale = RunnableParallel(
+    tweet=make_chain('You are a content writer for twitter.','Generate a tweet on product :{product} in 280 chars'),
+    linkedin=make_chain('You are a content writer for LinkedIn.','Generate a linkedIn post on product :{product}'),
+    email_sub=make_chain('You are a helpful assistant for writing email subjects.','Generate an email subject on product :{product}')
+    )
 
-chain_tweet = prompt_tweet | llm | parser
-chain_linkedIn = prompt_linkedin_post | llm | parser
-chain_email_sub = prompt_email_sub | llm | parser
 
-runnable = RunnableParallel(tweet=chain_tweet,linkedIn=chain_linkedIn,email_sub=chain_email_sub)
+response = runnable_parrale.invoke({"product":"An AI-powered resume builder that helps freshers land their first job"})
 
-response = runnable.invoke({"topic":"An AI-powered resume builder that helps freshers land their first job"})
-
-panels = [
-    Panel(response["tweet"], title="[bold cyan]Tweet[/]", border_style="cyan"),
-    Panel(response["linkedIn"], title="[bold blue]LinkedIn[/]", border_style="blue"),
-    Panel(response["email_sub"], title="[bold green]Email Subject[/]", border_style="green"),
-]
-console.print(Columns(panels, equal=True))
+columns([
+    (response["tweet"], "Tweet", "cyan"),
+    (response["linkedin"], "LinkedIn", "blue"),
+    (response["email_sub"], "Email Subject", "green"),
+])

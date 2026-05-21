@@ -7,6 +7,7 @@ from langchain_core.runnables import RunnableLambda,RunnableBranch
 from pydantic import BaseModel
 
 from ...config import load_env
+from ...display import panel
 
 load_env()
 
@@ -68,4 +69,4 @@ def support_sytem(query:str):
 
 res = support_sytem("My payment failed but money was deducted from my account")
 
-print(res)
+panel(res, "Support Response", "green")

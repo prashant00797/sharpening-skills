@@ -2,6 +2,7 @@ from typing import Literal
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel
 from ...config import load_env
+from ...display import panel, rule
 
 load_env()
 
@@ -17,6 +18,6 @@ llm_structured = llm.with_structured_output(ClaimsSchema)
 
 response = llm_structured.invoke("John Doe filed a medical claim of Rs 45000 on 15th March 2025 for hospitalization.")
 
-print("\n🤖 Assistant:")
-print(response)
-print(response.model_dump()) # type: ignore
+rule("Assistant")
+panel(response, "Claim (object)", "green")
+panel(response.model_dump(), "Claim (dict)", "blue")  # type: ignore

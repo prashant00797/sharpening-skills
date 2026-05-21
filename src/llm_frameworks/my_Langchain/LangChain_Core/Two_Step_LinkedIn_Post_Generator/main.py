@@ -2,13 +2,9 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableLambda
-from rich.console import Console
-from rich.panel import Panel
-from rich.rule import Rule
 from ...config import load_env
+from ...display import panel, rule
 load_env()
-
-console = Console()
 
 # client
 llm = ChatOpenAI(model="gpt-4o-mini",temperature=0.7)
@@ -37,8 +33,8 @@ parser = StrOutputParser()
 
 # runnable to inspect intermediate output
 def inspect(output):
-    console.print(Rule("[bold yellow]Chain 1 — Raw Draft[/]", style="yellow"))
-    console.print(Panel(output, border_style="yellow"))
+    rule("Chain 1 — Raw Draft", "yellow")
+    panel(output, style="yellow")
     return output  # pass it through unchanged
 
 inspect_func = RunnableLambda(inspect)
@@ -55,5 +51,5 @@ intial_chain = user_prompt | llm | parser | inspect_func | runnable_func | refin
 
 response = intial_chain.invoke({"topic":"The rise of AI agents in 2025"})
 
-console.print(Rule("[bold blue]Chain 2 — Refined Post[/]", style="blue"))
-console.print(Panel(response, title="[bold blue]Final LinkedIn Post[/]", border_style="blue"))
+rule("Chain 2 — Refined Post", "blue")
+panel(response, "Final LinkedIn Post", "blue")
